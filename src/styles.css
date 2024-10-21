@@ -1,0 +1,7 @@
+/* Set background color, page width, and position */
+body {
+    background-color: rgb(102, 204, 255);
+    width: 50%;
+	  margin: 0 auto;
+  }
+

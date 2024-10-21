@@ -1,0 +1,4 @@
+/* Set page content to the middle of the page */
+h2,div {
+    text-align: center;
+}

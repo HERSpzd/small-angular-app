@@ -1,0 +1,151 @@
+<br>
+<div class="div1">
+<!-- User input form -->
+{{ artistId }}<br>
+<input class="input" id="txt1" type="text" [(ngModel)]="txt1"/>
+<br><br>
+{{ name }}<br>
+<input class="input" id="txt2" type="text" [(ngModel)]="txt2"/>
+<br><br>
+{{ dob }}<br>
+<input class="input" id="txt3" type="text" [(ngModel)]="txt3"/>
+<br><br>
+<!-- Two dropdown menus -->
+{{ gender }}<br>
+<select class="select" id="gender" name="gender" required [(ngModel)]="selectedList4">
+    <option *ngFor="let li4 of list4" [value]="li4">{{ li4 }}</option>
+</select>
+<br><br>
+{{ artworkType }}<br>
+<select class="select" id="artworkType" name="artworkType" required [(ngModel)]="selectedList5">
+    <option *ngFor="let li5 of list5" [value]="li5">{{ li5 }}</option>
+</select>
+<br><br>
+{{ contactInfo }} <br> 
+<input class="input" id="txt6" type="text" [(ngModel)]="txt6"/>
+<br><br>
+{{ exhibitionDate }}<br>
+<input class="input" id="txt7" type="text" [(ngModel)]="txt7"/>
+<br><br>
+{{ specialNotes }}<br>
+<input class="input" id="txt8" type="text" [(ngModel)]="txt8"/>
+<br><br>
+<!-- add button -->
+<button class="button" type="button" (click)="onAdd()">Add</button> &nbsp;
+<!-- edit button -->
+<button class="button" type="button" (click)="onEdit()">Edit</button> &nbsp;
+<br><br>
+
+<input class="input2" id="searchDelete" type="text" [(ngModel)]="txt10"/> &nbsp;
+
+<!-- delete button -->
+<button class="button" type="button" (click)="onDelete()">Delete</button>
+<br><br>
+<input class="input2" id="txt9" type="text" [(ngModel)]="txt9"/> &nbsp;
+<!-- search button -->
+<button class="button" type="button" (click)="search()">Search</button>
+<br><br>
+
+
+<br>
+
+<!-- Display error and success messages -->
+<p>{{ errorMessage }}</p>
+
+
+{{ searchResult }}<br><br>
+
+</div>
+
+
+<div>
+<!-- Display a list of search results -->
+  <table class="table" id="tbl1">
+    <tr>
+      <th>Artist ID&nbsp;</th>
+      <th>Name&nbsp;</th>
+      <th>DOB&nbsp;</th>
+      <th>Gender&nbsp;</th>
+      <th>Artwork Type&nbsp;</th>
+      <th>Contact info&nbsp;</th>
+      <th>Exhibition date&nbsp;</th>
+      <th>Special notes&nbsp;</th>
+    </tr>
+    <tr>
+      <td *ngIf="txt11 !== null">{{ txt11 }}</td>
+      <td *ngIf="txt11 !== null">{{ txt12 }}</td>
+      <td *ngIf="txt11 !== null">{{ txt13 }}</td>
+      <td *ngIf="txt11 !== null">{{ txt14 }}</td>
+      <td *ngIf="txt11 !== null">{{ txt15 }}</td>
+      <td *ngIf="txt11 !== null">{{ txt16 }}</td>
+      <td *ngIf="txt11 !== null">{{ txt17 }}</td>
+      <td *ngIf="txt11 !== null">{{ txt18 }}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="div1">
+<p>Display all artist</p>
+</div>
+
+<!-- Display a list of all stored artists -->
+<div *ngIf="artistData !== null">
+    <table class="table" id="tbl1">
+      <tr>
+        <th>Artist ID&nbsp;</th>
+        <th>Name&nbsp;</th>
+        <th>DOB&nbsp;</th>
+        <th>Gender&nbsp;</th>
+        <th>Artwork Type&nbsp;</th>
+        <th>Contact info&nbsp;</th>
+        <th>Exhibition date&nbsp;</th>
+        <th>Special notes&nbsp;</th>
+      </tr>
+      <!-- Adopting bidirectional binding, the list will update data synchronously -->
+      <tr *ngFor="let artist of artistData; let i=index">
+        <td>{{ artist.artistId }}</td>
+        <td>{{ artist.name }}</td>
+        <td>{{ artist.dob }}</td>
+        <td>{{ artist.gender }}</td>
+        <td>{{ artist.artworkType }}</td>
+        <td>{{ artist.contactInfo }}</td>
+        <td>{{ artist.exhibitionDate }}</td>
+        <td>{{ artist.specialNotes }}</td>
+      </tr>
+    </table>
+</div>
+  
+<div class="div1">
+<p>Display featured artists</p>
+</div>
+
+<!-- Display a list of featured artists -->
+<div *ngIf="featuredArtistData != null">
+  <table class="table" id="tbl2">
+    <tr>
+      <th>Artist ID&nbsp;</th>
+      <th>Name&nbsp;</th>
+      <th>DOB&nbsp;</th>
+      <th>Gender&nbsp;</th>
+      <th>Artwork Type&nbsp;</th>
+      <th>Contact info&nbsp;</th>
+      <th>Exhibition date&nbsp;</th>
+      <th>Special notes&nbsp;</th>
+    </tr>
+    <!-- Adopting bidirectional binding, the list will update data synchronously -->
+    <tr *ngFor="let feature of featuredArtistData; let i=index">
+      <td>{{ feature.artistId }}</td>
+      <td>{{ feature.name }}</td>
+      <td>{{ feature.dob }}</td>
+      <td>{{ feature.gender }}</td>
+      <td>{{ feature.artworkType }}</td>
+      <td>{{ feature.contactInfo }}</td>
+      <td>{{ feature.exhibitionDate }}</td>
+      <td>{{ feature.specialNotes }}</td>
+    </tr>
+  </table>
+</div>
+
+
+
+      
